@@ -59,14 +59,18 @@ bool MyD3D::Initialize()
 
 
 	//create objects
-	obj_texture_box.CreateBuffer(p_Device);
+	/*obj_texture_box.CreateBuffer(p_Device);
 	obj_texture_box.SetScale(D3DXVECTOR3(1.5f, 1.5f, 1.5f));
 	obj_texture_box.SetTranslation(D3DXVECTOR3(2.0f, 0.0f, 0.0f));
-	
+	*/
 	/*obj_texture_plane.CreateBuffer(p_Device);
 	obj_texture_plane.SetScale(D3DXVECTOR3(3.0f, 3.0f, 3.0f));
 	obj_texture_plane.SetTranslation(D3DXVECTOR3(-2.0f, 0.0f, 0.0f));*/
 	
+	obj_texture_cylinder.CreateBuffer(p_Device);
+	obj_texture_cylinder.SetScale(D3DXVECTOR3(1.5f, 1.5f, 1.5f));
+	obj_texture_cylinder.SetTranslation(D3DXVECTOR3(2.0f, 0.0f, 0.0f));
+
 	obj_texture_plane_ring.CreateBuffer(p_Device);
 	obj_texture_plane_ring.SetScale(D3DXVECTOR3(1.2f, 1.2f, 1.2f));
 	obj_texture_plane_ring.SetTranslation(D3DXVECTOR3(-2.0f, 0.0f, 0.0f));
@@ -85,8 +89,9 @@ void MyD3D::FrameMove(float timeDelta)
 	{
 		_v_rot.y = 0.0f;
 	}
-	obj_texture_box.SetRotation(_v_rot);
+	//obj_texture_box.SetRotation(_v_rot);
 	//obj_texture_plane.SetRotation(_v_rot);
+	obj_texture_cylinder.SetRotation(_v_rot);
 	obj_texture_plane_ring.SetRotation(_v_rot);
 	_v_rot.x += 1.0f * timeDelta;
 	_v_rot.y += 1.0f * timeDelta;
@@ -102,12 +107,14 @@ bool MyD3D::Render()
 
 		p_Device->BeginScene();
         //drawing 
+
 		
 		//obj_texture_plane.Render(p_Device);
 		//p_Device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_ANISOTROPIC);
 		//p_Device->SetSamplerState(0, D3DSAMP_MAXANISOTROPY, 10);
-		obj_texture_box.Render(p_Device);
+		//obj_texture_box.Render(p_Device);
 
+		obj_texture_cylinder.Render(p_Device);
 		obj_texture_plane_ring.Render(p_Device);
 
 		p_Device->EndScene();

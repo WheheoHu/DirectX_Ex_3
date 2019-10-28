@@ -65,4 +65,17 @@ private:
 	IDirect3DTexture9*				_texture[8];	//8张纹理缓存
 };
 
+class Cylinder_Texture :public D3DObject
+{
+public:
+	Cylinder_Texture();
+	~Cylinder_Texture();
+	bool		CreateBuffer(IDirect3DDevice9* _device);
+	void		Render(IDirect3DDevice9* _device);
+private:
+	IDirect3DVertexBuffer9*			_vb;			//顶点缓存
+	IDirect3DIndexBuffer9*			_ib;			//索引缓存
+	IDirect3DTexture9*				_texture[8];	//8张纹理缓存
+};
+
 #endif // __Object_IndexH__

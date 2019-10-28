@@ -42,6 +42,7 @@ private:
 	Box_Texture	        obj_texture_box;
 	Plane_Texture       obj_texture_plane;
 	Plane_Ring_Textrue  obj_texture_plane_ring;
+	Cylinder_Texture	obj_texture_cylinder;
 };
 
 #endif // __MyD3DH__
